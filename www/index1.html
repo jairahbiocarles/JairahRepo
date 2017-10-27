@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content Type" content="text/html;
+		charset=UTF-8"/>
+		<meta name="format-detection" content="telephone=no"/>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+		<script type="text/javascript" src="cordova-2.2.0.js"></script>
+		<script> window.onload=function() 
+		{
+			document.addEventListener("deviceready",onDeviceReady, false);
+		}
+			function onDeviceReady()
+			{
+				document.getElementById('btnSave').addEventListener('click',saveContact, false);
+			}
+
+				function saveContact()
+			{
+				var fullName=document.getElementById("first").value  + "" +
+				document.getElememtById("last").value;
+
+				var note=document.getElementById("note").value;
+
+				var the Contact=navigator.contact.create({"displayName";fullName});
+				
+				the Contact.note=note;
+
+				the Contact.save();
+			}
+			</script>
+			<title>New Input</title>
+			</head>
+			<body bgcolor="purple" style="background-color:#ba32d1;">
+
+			<form>
+				<center>
+				<h1>Physical Log</h1>
+				<font face="arial" size="5" color="black">
+				<label for="first">Name</label><br>
+				<input type="text" id="first"  placeholder="Ënter Name" style="box-shadow: inset 0px 0px 8px 0px violet;"><br>
+				<label for="age">Age</label><br/>
+				<input type="text" id="age" placeholder="Enter Age" style="box-shadow: inset 0px 0px 8px 0px violet;"><br/><br>
+				<label for="height">Height</label><br>
+				<input type="text" id="first" placeholder="Enter Height" style="box-shadow: inset 0px 0px 8px 0px violet;"><br/><br>
+				<label for="weight">Weight</label><br>
+				<input type="text" id="weight" placeholder="Enter Weight" style="box-shadow: inset 0px 0px 8px 0px violet;"><br/><br>
+				<label for="note">Note</label><br/>
+				<textarea id="note" placeholder="Ënter Notes"style="box-shadow: inset 0px 0px 8px 0px violet;"></textarea><br/><br>
+				
+				</font>
+				<font face="courier" size="4">
+				<a href="sample2.html" style=":" color:="black";>Save Log</a>
+				</font>
+				</center>
+			</form>
+
+			<script type="text/javascript" src="cordova.js"></script>
+			</body>
+			</html>
